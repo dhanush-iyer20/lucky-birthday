@@ -1,10 +1,18 @@
 import "./styles.css";
+var date = document.getElementById("date");
+var luckyNumber = document.getElementById("luckyNumber");
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+document.getElementById("btn").addEventListener("click", () => {
+  var sum = 0;
+  const dateArr = date.value.split("-");
+  console.log(dateArr);
+  for (let i = 0; i < dateArr.length; i++) {
+    sum = sum + parseInt(dateArr[i]);
+  }
+  console.log(sum);
+  if (sum % luckyNumber.value === 0) {
+    document.getElementById("text").innerText = "Yay! Your birthday is lucky";
+  } else {
+    document.getElementById("text").innerText = "oops! Bad luck";
+  }
+});
